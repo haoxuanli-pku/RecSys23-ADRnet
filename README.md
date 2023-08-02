@@ -1,5 +1,5 @@
-# ADRNet: Multi-label Adverse Drug Reaction Prediction via Drug Descriptor-aware Collaborative Filtering [1]
-## Usage:
+# ADRNet: Multi-label Adverse Drug Reaction Prediction via Drug Descriptor-aware Collaborative Filtering.
+## Usage
 
 - Create and activate a python environment using anaconda:
 
@@ -11,7 +11,7 @@
 
 
 
-- To generate K-Fold data
+- To generate K-Fold data:
 
     `python main.py -i`
 
@@ -37,6 +37,16 @@ All input data is available in the "./data" folder:
 
 
 ## Reference
-
-
+```
+@article{nguyen2021survey,
+  title={A survey on adverse drug reaction studies: data, tasks and machine learning methods},
+  author={Nguyen, Duc Anh and Nguyen, Canh Hao and Mamitsuka, Hiroshi},
+  journal={Briefings in Bioinformatics},
+  volume={22},
+  number={1},
+  pages={164--177},
+  year={2021},
+  publisher={Oxford University Press}
+}
+```
 
