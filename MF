@@ -1,0 +1,82 @@
+import torch
+import torch.nn as nn
+
+class MF(nn.Module):
+    def __init__(self, num_users, num_items, embedding_k=4, *args, **kwargs):
+        super(MF, self).__init__()
+        self.num_users = num_users
+        self.num_items = num_items
+        self.embedding_k = embedding_k
+        self.W = torch.nn.Embedding(self.num_users, self.embedding_k)
+        self.H = torch.nn.Embedding(self.num_items, self.embedding_k)
+
+        self.sigmoid = torch.nn.Sigmoid()
+        self.xent_func = torch.nn.BCELoss()
+
+    def forward(self, x, is_training=False):
+        user_idx = torch.LongTensor(x[:, 0]) #user index list
+        item_idx = torch.LongTensor(x[:, 1]) #item index list
+        U_emb = self.W(user_idx) # (num_users*embedding_k)
+        V_emb = self.H(item_idx) # (num_items*embedding_k)
+
+        out = torch.sum(U_emb.mul(V_emb), 1) #横向求和
+
+        if is_training:
+            return out, U_emb, V_emb
+        else:
+            return out
+
+    def fit(self, x, y,
+            num_epoch=1000, batch_size=128, lr=0.05, lamb=0,
+            tol=1e-4, verbose=True):
+
+        optimizer = torch.optim.Adam(self.parameters(), lr=lr, weight_decay=lamb)
+        last_loss = 1e9
+
+        num_sample = len(x)
+        total_batch = num_sample // batch_size
+
+        early_stop = 0
+        for epoch in range(num_epoch):
+            all_idx = np.arange(num_sample)
+            np.random.shuffle(all_idx)
+            epoch_loss = 0
+
+            for idx in range(total_batch):
+                # mini-batch training
+                selected_idx = all_idx[batch_size * idx:(idx + 1) * batch_size]
+                sub_x = x[selected_idx]
+                sub_y = y[selected_idx]
+                sub_y = torch.Tensor(sub_y)
+
+                pred, u_emb, v_emb = self.forward(sub_x, True)
+                pred = self.sigmoid(pred)
+                xent_loss = self.xent_func(pred, sub_y)
+
+                loss = xent_loss
+
+                optimizer.zero_grad()
+                loss.backward()
+                optimizer.step()
+
+                epoch_loss += xent_loss.detach().numpy()
+
+            relative_loss_div = (last_loss - epoch_loss) / (last_loss + 1e-10)
+            if relative_loss_div < tol:
+                if early_stop > 5:
+                    print("[MF] epoch:{}, xent:{}".format(epoch, epoch_loss))
+                    break
+                early_stop += 1
+
+            last_loss = epoch_loss
+
+            if epoch % 10 == 0 and verbose:
+                print("[MF] epoch:{}, xent:{}".format(epoch, epoch_loss))
+
+            if epoch == num_epoch - 1:
+                print("[MF] Reach preset epochs, it seems does not converge.")
+
+    def predict(self, x):
+        pred = self.forward(x)
+        pred = self.sigmoid(pred)
+        return pred.detach().numpy()

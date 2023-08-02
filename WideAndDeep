@@ -1,0 +1,96 @@
+import torch
+import torch.nn as nn
+
+
+class WideAndDeep(nn.Module):
+    def __init__(self,
+                 cat_features,
+                 emb_dims, encode_dim,
+                 deep_fea_nums,
+                 wide_fea_nums):
+        """wide and deep model
+
+        Args:
+            cat_features (dict): the number of each categorical feature  key：类别型特征的名称，value：每个类别型特征的取值集合大小 如：“性别”有两个取值：男、女
+            emb_dims (list): the list of layer dims             每一层的维度，最后一层的维度也是wide层的输出维度
+            encode_dim (int): encoded embedding dim             每个特征embedding的维数
+            deep_fea_nums (int): the number of deep features    输入deep的特征数
+            wide_fea_nums (int): the number of wide features    输入wide的特征数
+        """
+        super(WideAndDeep, self).__init__()
+        self.cat_features = cat_features
+        self.emb_dims = emb_dims
+        self.encode_dim = encode_dim
+        self.deep_fea_nums = deep_fea_nums
+        self.wide_fea_nums = wide_fea_nums
+        self.embs = nn.ModuleDict()
+
+        # 存储不同的embedding层
+        for fea_name in self.cat_features.keys():
+            fea_nums = self.cat_features[fea_name]   # 该类别特征的取值集合大小
+            emb = nn.Embedding(fea_nums, self.encode_dim)  # 该类别特征的embedding函数
+            self.embs[fea_name] = emb  # 将该embedding函数存入一个dict，其key为该类别的名称
+
+        self.dlayers = self.deep_layer()  # deep层函数
+        self.wlayer = self.wide_layer()  # wide层函数
+        self.softmax = nn.Softmax(dim=1)
+
+    def encoder(self, features):
+        # 对不同特征进行编码，返回存储每个特征embedding的dict
+        emb_dict = {}  # 存储每个特征embedding的dict
+        for fea_name in features.keys():
+            if fea_name in self.embs.keys():
+                # 若该feature的embedding函数存储在self.emb中，则将其embedding存储到emb_dict
+                emb_dict[fea_name] = self.embs[fea_name](features[fea_name])
+            elif 'cat_his' in fea_name:
+                # 否则，若该feature的名字包含“cat_his”，则使用embs中key为“cat”的函数进行embedding，并对其求均值存入emb_dict
+                emb_tmp = self.embs['cat'](features[fea_name])
+                emb_tmp = torch.mean(emb_tmp, 1)
+                emb_dict[fea_name] = emb_tmp
+
+            elif 'mid_his' in fea_name:
+                # 否则，若该feature的名字包含“mid_his”，则使用embs中key为“mid”的函数进行embedding，并对其求均值存入emb_dict
+                emb_tmp = self.embs['mid'](features[fea_name])
+                emb_tmp = torch.mean(emb_tmp, 1)
+                emb_dict[fea_name] = emb_tmp
+        return emb_dict
+
+    def deep_layer(self):
+        # 得到deep层，返回的dlayers是一个list，其中包含归一函数、每层的全连接函数的PReLu函数
+        input_dim = self.deep_fea_nums * self.encode_dim # deep的输入维度为原deep特征数量与其embedding维度的乘积
+        dlayers = nn.ModuleList([nn.BatchNorm1d(input_dim), nn.Linear(input_dim, self.emb_dims[0]), nn.PReLU()])
+        # dlayers[0]：nn.BatchNorm1d(input_dim)：定义了一个归一化的方法：将input_dim维度归一化
+        # dlayers[1]：nn.Linear(input_dim, self.emb_dims[0]): 全连接层函数，将输入的input_dim维度输出为emb_dims[0]维
+        # dlayers[2]：nn.PReLU()：PReLU函数
+
+        for i in range(1, len(self.emb_dims)):  # 每一层定义一个全连接函数，并将其和PReLU先后加入dlayers中
+            linear = nn.Linear(self.emb_dims[i - 1], self.emb_dims[i])
+            dlayers.append(linear)
+            dlayers.append(nn.PReLU())
+        return dlayers
+
+    def wide_layer(self):
+        # 得到wide层，返回值为一个简单的全连接层
+        input_dim = self.wide_fea_nums * self.encode_dim  # wide的输入维度为原wide特征数量与其embedding维度的乘积
+        linear = nn.Linear(input_dim, self.emb_dims[-1])  # 将输入的input_dim输出为emb_dims[-1]维
+        return linear
+
+    def forward(self, features):
+        # 得到不同特征的embedding
+        emb_dict = self.encoder(features)
+        # 构建deep部分的输入：拼接所有embedding
+        deep_emb = torch.cat(list(emb_dict.values()), 1)
+        # 构建wide部分的输入
+        item_emb = torch.cat([emb_dict['mid'], emb_dict['cat']], 1)  # 拼接key为“mid”和“cat”的embedding
+        item_his_emb = torch.cat([emb_dict['mid_his'], emb_dict['cat_his']], 1)  # 拼接key为“mid_his”和“cat_his”的embedding
+        wide_emb = torch.cat([item_emb, item_his_emb, item_emb * item_his_emb], 1)  # 将上述两个拼接结果与其元素积，一共三个向量再次拼接
+        # wide部分直接经过简单的一层layer
+        y_wide = self.wlayer(wide_emb)  # 得到wide层结果
+        # deep部分通过DNN进行特征交互
+        demb = deep_emb
+        for i in range(len(self.dlayers) - 1):  # 输入DNN前向传播
+            demb = self.dlayers[i](demb)
+        y_deep = demb  # 得到deep层结果
+        final_embd = y_deep + y_wide  # 将wide层和deep层结果相加
+        output = self.softmax(final_embd)  # 结果输入softmax
+        return output
