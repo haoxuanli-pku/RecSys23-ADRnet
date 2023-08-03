@@ -35,7 +35,17 @@
 
 All input data is available in the "./data" folder:
 
+## Citation
 
+If you find our codes are helpful, please kindly cite our paper below:
+```
+@inproceedings{li2023adr,
+  title={A{D}{R}{N}et: A Generalized Collaborative Filtering Framework Combining Clinical and Non-Clinical Data for Adverse Drug Reaction Prediction},
+  author={Li, Haoxuan and Hu, Taojun and Xiong, Zetong and Zheng, Chunyuan and Feng, Fuli and He, Xiangnan and Zhou, Xiao-Hua},
+  booktitle={ACM Conference on Recommender Systems},
+  year={2023}
+}
+```
 ## Reference
 ```
 @article{nguyen2021survey,
