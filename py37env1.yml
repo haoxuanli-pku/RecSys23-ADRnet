@@ -7,6 +7,10 @@ dependencies:
   - openbabel
   - pandas
   - scikit-learn
+  - pip
+  - pip:
+    - pyyaml
+    - qpsolvers==1.0.5
   #- torchvision
   - matplotlib
   #- posix_ipc
