@@ -519,7 +519,7 @@ class DrugNCF(torch.nn.Module):
                 # mini-batch training
                 selected_idx = all_idx[batch_size * idx:(idx + 1) * batch_size]  # 一共有batch_size个index
 
-                sub_drug_index = drug_idx[selected_idx]  # sub_drug_index
+                sub_drug_index = drug_idx[selected_idx].long()  # sub_drug_index
 
                 sub_drug_features = inputTrain_cuda[sub_drug_index]
                 sub_y = outputTrain_cuda[sub_drug_index]

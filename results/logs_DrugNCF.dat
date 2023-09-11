@@ -1,0 +1,289 @@
+K-Fold data folder: D:\Coding\PycharmProjects\ADRnet-main/data/kfolds_ec_aeolus
+Feature mode: 2
+Model: DrugNCF
+Format: AUC STDERR AUPR STDERR
+DrugNCF: k = 64, num_wide_layer=0, num_cf_layer=1, learning_rate = 0.0075, lambda = 3e-05, KNN = 65, tol = 0.0001
+K-Fold data folder: D:\Coding\PycharmProjects\ADRnet-main/data/kfolds_ec_aeolus
+Feature mode: 2
+Model: DrugNCF
+Format: AUC STDERR AUPR STDERR
+DrugNCF: k = 64, num_wide_layer=0, num_cf_layer=1, learning_rate = 0.0075, lambda = 3e-05, KNN = 65, tol = 0.0001
+K-Fold data folder: D:\Coding\PycharmProjects\ADRnet-main/data/kfolds_ec_aeolus
+Feature mode: 2
+Model: DrugNCF
+Format: AUC STDERR AUPR STDERR
+DrugNCF: k = 64, num_wide_layer=0, num_cf_layer=1, learning_rate = 0.0075, lambda = 3e-05, KNN = 65, tol = 0.0001
+K-Fold data folder: D:\Coding\PycharmProjects\ADRnet-main/data/kfolds_ec_aeolus
+Feature mode: 2
+Model: DrugNCF
+Format: AUC STDERR AUPR STDERR
+DrugNCF: k = 64, num_wide_layer=0, num_cf_layer=1, learning_rate = 0.0075, lambda = 3e-05, KNN = 65, tol = 0.0001
+K-Fold data folder: D:\Coding\PycharmProjects\ADRnet-main/data/kfolds_ec_aeolus
+Feature mode: 2
+Model: DrugNCF
+Format: AUC STDERR AUPR STDERR
+DrugNCF: k = 64, num_wide_layer=0, num_cf_layer=1, learning_rate = 0.0075, lambda = 3e-05, KNN = 65, tol = 0.0001
+K-Fold data folder: D:\Coding\PycharmProjects\ADRnet-main/data/kfolds_ec_aeolus
+Feature mode: 2
+Model: DrugNCF
+Format: AUC STDERR AUPR STDERR
+DrugNCF: k = 64, num_wide_layer=0, num_cf_layer=1, learning_rate = 0.0075, lambda = 3e-05, KNN = 65, tol = 0.0001
+Fold : 0
+Test : 0.885095374265609 0.7349928973274101
+Running time: 36.32905554771423
+Fold : 1
+Test : 0.9157662643856851 0.6906079697407612
+Running time: 31.873704195022583
+Fold : 2
+Test : 0.919246190891518 0.7565162412416672
+Running time: 28.29981017112732
+Fold : 3
+Test : 0.9180072531761096 0.7641087284842989
+Running time: 31.865845680236816
+Fold : 4
+Test : 0.927666838552638 0.7813804403733093
+Running time: 31.822102546691895
+Fold : 5
+Test : 0.919388655463762 0.7843134055847226
+Running time: 29.12703013420105
+Fold : 6
+Test : 0.9128163959712093 0.7036620540250189
+Running time: 28.45659875869751
+Fold : 7
+Test : 0.9019224391414242 0.7055615438231718
+Running time: 28.4821457862854
+Fold : 8
+Test : 0.8912969206504346 0.7393968527658735
+Running time: 31.332489490509033
+Fold : 9
+Test : 0.903434282796613 0.7117471092002092
+Running time: 28.195501804351807
+K-Fold data folder: D:\Coding\PycharmProjects\ADRnet-main/data/kfolds_ec_aeolus
+Feature mode: 2
+Model: DrugNCF
+Format: AUC STDERR AUPR STDERR
+DrugNCF: k = 64, num_wide_layer=0, num_cf_layer=1, learning_rate = 0.0075, lambda = 3e-05, KNN = 65, tol = 0.0001
+Fold : 0
+Test : 0.8845949459184337 0.7359678929906575
+Running time: 31.79176640510559
+Fold : 1
+Test : 0.9147218822025724 0.6887136607458226
+Running time: 29.590415954589844
+Fold : 2
+Test : 0.919418609507587 0.7566465541280167
+Running time: 30.652284145355225
+Fold : 3
+Test : 0.9172596862188005 0.7642056378636619
+Running time: 29.10443925857544
+Fold : 4
+Test : 0.9269900511441941 0.7809448367918367
+Running time: 31.065804719924927
+Fold : 5
+Test : 0.9188209692774629 0.7836965840154638
+Running time: 31.197734832763672
+Fold : 6
+Test : 0.9123584755487757 0.7029696388458787
+Running time: 29.748459577560425
+Fold : 7
+Test : 0.9038726205478868 0.7087885450798901
+Running time: 30.974159002304077
+Fold : 8
+Test : 0.8907586841309256 0.7398850704566897
+Running time: 29.4486186504364
+Fold : 9
+Test : 0.9035631429626745 0.7128796216656156
+Running time: 28.688598155975342
+K-Fold data folder: D:\Coding\PycharmProjects\ADRnet-main/data/kfolds_ec_aeolus
+Feature mode: 2
+Model: DrugNCF
+Format: AUC STDERR AUPR STDERR
+DrugNCF: k = 64, num_wide_layer=0, num_cf_layer=1, learning_rate = 0.0075, lambda = 3e-05, KNN = 65, tol = 0.0001
+K-Fold data folder: D:\Coding\PycharmProjects\ADRnet-main/data/kfolds_ec_aeolus
+Feature mode: 2
+Model: DrugNCF
+Format: AUC STDERR AUPR STDERR
+DrugNCF: k = 64, num_wide_layer=0, num_cf_layer=1, learning_rate = 0.0075, lambda = 3e-05, KNN = 65, tol = 0.0001
+Fold : 0
+Test : 0.8841912527416445 0.7344561129246716
+Running time: 35.846343994140625
+Fold : 1
+Test : 0.9149672645745264 0.6892915329886243
+Running time: 30.831124782562256
+Fold : 2
+Test : 0.9192919571773099 0.7562817895982094
+Running time: 30.338510990142822
+Fold : 3
+Test : 0.9173567450294143 0.7644291871303559
+Running time: 27.942084074020386
+Fold : 4
+Test : 0.9281977405441748 0.7826201792463108
+Running time: 31.445406675338745
+Fold : 5
+Test : 0.9192933533861125 0.7843012661033422
+Running time: 29.300138473510742
+Fold : 6
+Test : 0.9124879172605782 0.7027793706311205
+Running time: 31.316009521484375
+Fold : 7
+Test : 0.9036782199130282 0.7083058023240714
+Running time: 31.738991260528564
+Fold : 8
+Test : 0.8909492831497472 0.7391084679292983
+Running time: 31.122024536132812
+Fold : 9
+Test : 0.9036698388725108 0.7133759048046356
+Running time: 28.2307345867157
+Test : 0.9094083572649048 0.004116316888914351 0.7374949613680639 0.010138949418027093
+Test : 90.94¡À0.41, 73.75¡À1.01
+Avg running time: 30.811136889457703 0.6660698240950733
+K-Fold data folder: E:\Code4ADRNet/data/kfolds_ec_aeolus
+Feature mode: 2
+Model: DrugNCF
+Format: AUC STDERR AUPR STDERR
+DrugNCF: k = 64, num_wide_layer=0, num_cf_layer=1, learning_rate = 0.0075, lambda = 3e-05, KNN = 65, tol = 0.0001
+Fold : 0
+Test : 0.8842597280517921 0.735063949424823
+Running time: 40.48390483856201
+Fold : 1
+Test : 0.9153817955480719 0.6898322154181236
+Running time: 37.20945072174072
+Fold : 2
+Test : 0.9194680256472991 0.7561588055044732
+Running time: 37.641836404800415
+Fold : 3
+Test : 0.9177020059654473 0.7637756431711181
+Running time: 38.188295125961304
+Fold : 4
+Test : 0.9270280330385818 0.7817272818384233
+Running time: 38.254924058914185
+Fold : 5
+Test : 0.9191981412452055 0.7841008841825057
+Running time: 36.83815598487854
+Fold : 6
+Test : 0.9125656813734205 0.7029039868522313
+Running time: 38.172415256500244
+Fold : 7
+Test : 0.9034154834506599 0.7083475531561415
+Running time: 36.05193781852722
+Fold : 8
+Test : 0.8909494054331639 0.7388348269233233
+Running time: 35.568156480789185
+Fold : 9
+Test : 0.9037013085005802 0.7129733182689879
+Running time: 33.03966212272644
+K-Fold data folder: E:\Code4ADRNet/data/kfolds_ec_aeolus
+Feature mode: 2
+Model: DrugNCF
+Format: AUC STDERR AUPR STDERR
+DrugNCF: k = 64, num_wide_layer=0, num_cf_layer=1, learning_rate = 0.0075, lambda = 3e-05, KNN = 65, tol = 0.0001
+Fold : 0
+Test : 0.8849380317009357 0.7351547936774838
+Running time: 40.44541621208191
+Fold : 1
+Test : 0.9152343987455899 0.6897899070156713
+Running time: 34.449679374694824
+Fold : 2
+Test : 0.9190433666371117 0.7556594035717786
+Running time: 32.85834193229675
+Fold : 3
+Test : 0.9175667622663592 0.7638292951155639
+Running time: 35.02443075180054
+Fold : 4
+Test : 0.9269905509174295 0.7807621028293512
+Running time: 35.51548099517822
+Fold : 5
+Test : 0.9193156388490589 0.7836840240474687
+Running time: 31.88654661178589
+Fold : 6
+Test : 0.9123677976497154 0.702881339384705
+Running time: 35.09561514854431
+Fold : 7
+Test : 0.9042450839552902 0.7096593026164505
+Running time: 43.265167474746704
+Fold : 8
+Test : 0.890987939991764 0.7389875511569038
+Running time: 39.9198157787323
+Fold : 9
+Test : 0.9035273639541315 0.7127015095039514
+Running time: 33.834168434143066
+K-Fold data folder: E:\Code4ADRNet/data/kfolds_ec_aeolus
+Feature mode: 2
+Model: DrugNCF
+Format: AUC STDERR AUPR STDERR
+DrugNCF: k = 64, num_wide_layer=0, num_cf_layer=1, learning_rate = 0.0075, lambda = 3e-05, KNN = 65, tol = 0.0001
+Fold : 0
+Test : 0.8855252463994915 0.7356596583387504
+Running time: 37.41475248336792
+Fold : 1
+Test : 0.9153809587111359 0.6905574205168586
+Running time: 36.13395023345947
+Fold : 2
+Test : 0.9197322834875317 0.7576668197024411
+Running time: 35.49702072143555
+Fold : 3
+Test : 0.9181154360422665 0.7646024978223364
+Running time: 34.893768310546875
+Fold : 4
+Test : 0.9266409427495373 0.7801282177023715
+Running time: 35.75203323364258
+Fold : 5
+Test : 0.9193763644701594 0.7844422357492785
+Running time: 34.33936548233032
+Fold : 6
+Test : 0.9124456356420058 0.702798394754459
+Running time: 37.63046646118164
+Fold : 7
+Test : 0.9040876796876579 0.7095824546526321
+Running time: 38.28756380081177
+Fold : 8
+Test : 0.8912257737344206 0.7393324827095897
+Running time: 36.634427309036255
+Fold : 9
+Test : 0.9033117935428084 0.7125374343845339
+Running time: 34.36383819580078
+Test : 0.9095842114467014 0.0039872229085026484 0.7377307616333251 0.009989255719630092
+Test : 90.96¡À0.40, 73.77¡À1.00
+Avg running time: 36.09471862316131 0.4146875303913426
+K-Fold data folder: E:\Code4ADRNet/data/kfolds_ec_liu
+Feature mode: 2
+Model: DrugNCF
+Format: AUC STDERR AUPR STDERR
+DrugNCF: k = 64, num_wide_layer=0, num_cf_layer=1, learning_rate = 0.001, lambda = 1e-05, KNN = 65, tol = 0.0001
+Fold : 0
+Test : 0.9089829306272187 0.49641631239776696
+Running time: 10.282512903213501
+Fold : 1
+Test : 0.9118006226911695 0.5081360851657613
+Running time: 8.880391597747803
+Fold : 2
+Test : 0.9201341205921383 0.5025418393040303
+Running time: 10.150833129882812
+Fold : 3
+Test : 0.8988312497664863 0.48822735070084994
+Running time: 10.187326669692993
+Fold : 4
+Test : 0.9170676646303664 0.5378234723089592
+Running time: 10.287982702255249
+Fold : 5
+Test : 0.9043027586191232 0.4796289194636184
+Running time: 11.021049737930298
+Fold : 6
+Test : 0.9172452973263523 0.5338379091262332
+Running time: 9.868391275405884
+Fold : 7
+Test : 0.9057790104691095 0.50156863620286
+Running time: 10.135077476501465
+Fold : 8
+Test : 0.9177495776494846 0.5551863972826424
+Running time: 10.140841722488403
+Fold : 9
+Test : 0.9143938775339943 0.47085109755492904
+Running time: 10.04700779914856
+Test : 0.9116287109905443 0.002091111430335533 0.507421801950765 0.008100321677160606
+Test : 91.16¡À0.21, 50.74¡À0.81
+Avg running time: 10.100141501426696 0.15728905668201368
+K-Fold data folder: E:\Code4ADRNet/data/kfolds_ec_liu
+Feature mode: 2
+Model: DrugNCF
+Format: AUC STDERR AUPR STDERR
+DrugNCF: k = 64, num_wide_layer=0, num_cf_layer=1, learning_rate = 0.001, lambda = 1e-05, KNN = 65, tol = 0.0001
